@@ -5,8 +5,8 @@ public class CalculadoraImc {
     public static String calcularImc(double altura, double peso, int idade, String sexo) {
         double imc = peso / (altura * altura); // Cálculo do IMC
 
-        if (idade >= 18) {
-            // Casos para adultos
+        if (idade >= 18 && idade < 65) {
+            // IMC adulto
             if (imc < 16) {
                 return "Baixo peso muito grave";
             } else if (imc >= 16 && imc < 17) {
@@ -24,8 +24,9 @@ public class CalculadoraImc {
             } else {
                 return "Obesidade grau III (obesidade mórbida)";
             }
-        } else if (idade >= 65) {
-            // Casos para idosos
+        }
+        else if (idade >= 65) {
+            // IMC idoso
             if (sexo.equals("masculino")) {
                 if (imc < 21.9) {
                     return "Baixo peso";
@@ -55,20 +56,19 @@ public class CalculadoraImc {
                     return "Obesidade grau III (obesidade mórbida)";
                 }
             }
-        } else {
-            // Casos para crianças
-            if (idade > 18){
-                if (imc < 5) {
-                    return "Baixo peso";
-                } else if (imc >= 5 && imc < 85) {
-                    return "Peso normal";
-                } else if (imc >= 85 && imc < 95) {
-                    return "Sobrepeso";
-                } else {
-                    return "Obesidade";
-                }
+        } else if (idade < 18) {
+            // IMC crianca
+            if (imc < 18) {
+                return "Baixo peso";
+            } else if (imc >= 18 && imc < 27) {
+                return "Peso normal";
+            } else if (imc >= 27 && imc < 30) {
+                return "Sobrepeso";
+            } else {
+                return "Obesidade";
             }
+        } else {
+            return "falha";
         }
-        return "falha";
-}
+    return "falha";}
 }
