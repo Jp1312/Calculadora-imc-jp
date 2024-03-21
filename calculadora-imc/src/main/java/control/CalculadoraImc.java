@@ -26,7 +26,7 @@ public class CalculadoraImc {
             }
         } else if (idade >= 65) {
             // Casos para idosos
-            if (sexo.equals("M")) {
+            if (sexo.equals("masculino")) {
                 if (imc < 21.9) {
                     return "Baixo peso";
                 } else if (imc >= 21.9 && imc < 27) {
@@ -40,7 +40,7 @@ public class CalculadoraImc {
                 } else {
                     return "Obesidade grau III (obesidade mórbida)";
                 }
-            } else if (sexo.equals("F")) {
+            } else if (sexo.equals("feminino")) {
                 if (imc < 21.9) {
                     return "Baixo peso";
                 } else if (imc >= 21.9 && imc < 27) {
@@ -57,14 +57,16 @@ public class CalculadoraImc {
             }
         } else {
             // Casos para crianças
-            if (imc < 5) {
-                return "Baixo peso";
-            } else if (imc >= 5 && imc < 85) {
-                return "Peso normal";
-            } else if (imc >= 85 && imc < 95) {
-                return "Sobrepeso";
-            } else {
-                return "Obesidade";
+            if (idade > 18){
+                if (imc < 5) {
+                    return "Baixo peso";
+                } else if (imc >= 5 && imc < 85) {
+                    return "Peso normal";
+                } else if (imc >= 85 && imc < 95) {
+                    return "Sobrepeso";
+                } else {
+                    return "Obesidade";
+                }
             }
         }
         return "falha";
