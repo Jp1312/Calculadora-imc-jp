@@ -165,7 +165,29 @@ public class CalculadoraImcTestes {
     public void CriancaMobesidade() {
         Assert.assertEquals("Obesidade", calculadoraImc.calcularImc(1.5, 75, 17, "masculino"));
     }
+    @Test
+    public void CriancaFBaixoPeso()
+    {
+        Assert.assertEquals("Baixo peso", calculadoraImc.calcularImc(1.5, 35, 10, "feminino"));
+}
+
+    @Test
+    public void CriancaFpesoNormal()
+    {
+        Assert.assertEquals("Peso normal", calculadoraImc.calcularImc(1.5, 45, 12, "feminino"));
+}
+
+    @Test
+    public void CriancaFsobrepeso()
+    {
+        Assert.assertEquals("Sobrepeso", calculadoraImc.calcularImc(1.5, 65, 15, "feminino"));
+}
+
+    @Test
+    public void CriancaFobesidade()
+    {
+        Assert.assertEquals("Obesidade", calculadoraImc.calcularImc(1.5, 75, 17, "feminino"));
+}
 
 
 }
-
